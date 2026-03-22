@@ -1,0 +1,28 @@
+{
+  "entities": {
+    "KnowledgeCard": {
+      "title": "Knowledge Card",
+      "description": "A single piece of knowledge, note, or link saved by the user.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique ID for the card" },
+        "uid": { "type": "string", "description": "Owner's user ID" },
+        "title": { "type": "string", "description": "Title of the card" },
+        "content": { "type": "string", "description": "Full content of the note or link" },
+        "tags": { "type": "array", "items": { "type": "string" }, "description": "List of tags" },
+        "source": { "type": "string", "description": "Source URL or origin" },
+        "created_at": { "type": "number", "description": "Timestamp of creation" },
+        "updated_at": { "type": "number", "description": "Timestamp of last update" },
+        "links": { "type": "array", "items": { "type": "string" }, "description": "IDs of linked cards" },
+        "summary": { "type": "string", "description": "AI-generated summary" }
+      },
+      "required": ["id", "uid", "title", "content", "created_at", "updated_at"]
+    }
+  },
+  "firestore": {
+    "cards": {
+      "schema": "KnowledgeCard",
+      "description": "Collection of knowledge cards stored by users."
+    }
+  }
+}
